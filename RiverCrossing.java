@@ -105,7 +105,7 @@ class RiverCrossing{
         }
 	}
 
-
+	//checks if a character (N,R,L,C) is in a certain bank, if true, then the character can move to other bank
 	static boolean ifExists(String a, ArrayList <String> b){
 		for (String letter : b) {
 	     if (letter.equals(a)) {
@@ -114,14 +114,14 @@ class RiverCrossing{
 	    }
 	    return false;
 	}
-
+	//performs the movement of R,L,C
 	static void toEast(String a, ArrayList <String> b, ArrayList<String> c) throws IOException{
 		c.add(a);
 		c.add("N");
 		b.remove(a);
 		b.remove("N");
 	}
-
+	//performs the movement of R,L,C
 	static void toWest(String a,  ArrayList <String> b, ArrayList<String> c)  throws IOException{
 		c.add(a);
 		c.add("N");
@@ -129,6 +129,7 @@ class RiverCrossing{
 		b.remove("N");
 	}
 
+	//if man is in the certain bank
 	static boolean withMan(ArrayList<String> a){
 		if(a.contains("N"))
 			return true;
@@ -136,6 +137,7 @@ class RiverCrossing{
 			return false;
 	}
 
+	//checks of the characters in a bank won't kill each other (meaning, the man is with them)
 	static boolean deadCompany(ArrayList <String> a){
 		if(a.size() == 2){
 			if(a.contains("L") && a.contains("R"))
